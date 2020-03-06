@@ -4,33 +4,33 @@
       <title>HSE Schedule App</title>
       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <meta name="apple-mobile-web-app-capable" content="yes">
-      <link rel="stylesheet" type="text/css" href="/styling/about.css">
-      <link rel="stylesheet" type="text/css" href="/styling/bellSchedule.css">
-      <link rel="stylesheet" type="text/css" href="/styling/home.css">
-      <link rel="stylesheet" type="text/css" href="/styling/calendar.css">
-      <link rel="stylesheet" type="text/css" href="/styling/settings.css">
-      <link rel="stylesheet" type="text/css" href="/styling/style.css">
-      <link rel="apple-touch-icon" href="/images/HSEScheduleAppLogo192.png">
-      <link rel="shortcut icon" href="/images/HSEScheduleAppLogo192.png">
-      <link rel="manifest" href="/manifest.json">
+      <link rel="stylesheet" type="text/css" href="/public/styling/about.css">
+      <link rel="stylesheet" type="text/css" href="/public/styling/bellSchedule.css">
+      <link rel="stylesheet" type="text/css" href="/public/styling/home.css">
+      <link rel="stylesheet" type="text/css" href="/public/styling/calendar.css">
+      <link rel="stylesheet" type="text/css" href="/public/styling/settings.css">
+      <link rel="stylesheet" type="text/css" href="/public/styling/style.css">
+      <link rel="apple-touch-icon" href="/public/images/HSEScheduleAppLogo192.png">
+      <link rel="shortcut icon" href="/public/images/HSEScheduleAppLogo192.png">
+      <link rel="manifest" href="/public/manifest.json">
       <link href="https://fonts.googleapis.com/css?family=Rubik:300&display=swap" rel="stylesheet">
       <script src="https://www.gstatic.com/charts/loader.js"></script>
-      <script src="/serviceworker.js"></script>
-      <script src="/js/classes/DateTime.js"></script>
-      <script src="/js/classes/Sheets.js"></script>
-      <script src="/js/classes/Schedule.js"></script>
-      <script src="/js/classes/PopUp.js"></script>
-      <script src="/js/classes/Storage.js"></script>
-      <script src="/js/addons.js"></script>
-      <script src="/js/storageChecker.js"></script>
-      <script src="/js/pageSwitcher.js"></script>
-      <script src="/js/scheduleTable.js"></script>
-      <script src="/js/themeSwitcher.js"></script>
-      <script src="/js/completionCircle.js"></script>
-      <script src="/js/calendarScript.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/animations.js"></script>
-      <script src="/js/swipe.js"></script>
+      <script src="/public/serviceworker.js"></script>
+      <script src="/public/js/classes/DateTime.js"></script>
+      <script src="/public/js/classes/Sheets.js"></script>
+      <script src="/public/js/classes/Schedule.js"></script>
+      <script src="/public/js/classes/PopUp.js"></script>
+      <script src="/public/js/classes/Storage.js"></script>
+      <script src="/public/js/addons.js"></script>
+      <script src="/public/js/storageChecker.js"></script>
+      <script src="/public/js/pageSwitcher.js"></script>
+      <script src="/public/js/scheduleTable.js"></script>
+      <script src="/public/js/themeSwitcher.js"></script>
+      <script src="/public/js/completionCircle.js"></script>
+      <script src="/public/js/calendarScript.js"></script>
+      <script src="/public/js/main.js"></script>
+      <script src="/public/js/animations.js"></script>
+      <script src="/public/js/swipe.js"></script>
 
    </head>
    <body class="disable-selection">
@@ -52,7 +52,7 @@
                <div id="about" class="pageContent">
                   <div id="twitter">
                   </div>
-                  <script src="/js/twitterFeed.js"></script>
+                  <script src="/public/js/twitterFeed.js"></script>
                   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                   <div class="info">
                      <div id="credits" class="pageContent">
@@ -60,8 +60,8 @@
                            <h2>Made by Ethan Donahue and Isaac Robbins</h2>
                         </div>
                         <div class="pfpImages">
-                           <img alt="Ethan" class="pfp" src="/images/ethan.jpg"></img>
-                           <img alt="Isaac" class="pfp" src="/images/isaac.jpg"></img>
+                           <img alt="Ethan" class="pfp" src="/public/images/ethan.jpg"></img>
+                           <img alt="Isaac" class="pfp" src="/public/images/isaac.jpg"></img>
                         </div>
                      </div>
                      <div id="links">
@@ -222,31 +222,31 @@
                <a onclick="showSection('about')" id="aboutButton">
                   <div class="navbutton">
                      <span class="centerHelper"></span>
-                     <img alt="About" class="center" src="/images/unselected/about.png" id="aboutIcon">
+                     <img alt="About" class="center" src="/public/images/unselected/about.png" id="aboutIcon">
                   </div>
                </a>
                <a onclick="showSection('bell')" id="bellButton">
                   <div class="navbutton">
                      <span class="centerHelper"></span>
-                     <img alt="Schedule" class="center" src="/images/unselected/schedule.png" id="bellIcon">
+                     <img alt="Schedule" class="center" src="/public/images/unselected/schedule.png" id="bellIcon">
                   </div>
                </a>
                <a onclick="showSection('home')" id="homeButton">
                   <div class="navbutton">
                      <span class="centerHelper"></span>
-                     <img alt="Home" class="center" src="/images/unselected/home.png" id="homeIcon">
+                     <img alt="Home" class="center" src="/public/images/unselected/home.png" id="homeIcon">
                   </div>
                </a>
                <a onclick="showSection('calendar')" id="calendarButton">
                   <div class="navbutton">
                      <span class="centerHelper"></span>
-                     <img alt="Calendar" class="center" src="/images/unselected/calendar.png" id="calendarIcon">
+                     <img alt="Calendar" class="center" src="/public/images/unselected/calendar.png" id="calendarIcon">
                   </div>
                </a>
                <a onclick="showSection('settings')" id="settingsButton">
                   <div class="navbutton">
                      <span class="centerHelper"></span>
-                     <img alt="Settings" class="center" src="/images/unselected/settings.png" id="settingsIcon">
+                     <img alt="Settings" class="center" src="/public/images/unselected/settings.png" id="settingsIcon">
                   </div>
                </a>
             </div>
@@ -255,5 +255,5 @@
 
    </body>
 </html>
-<script src="/js/mobileBrowser.js"></script>
-<script src="/js/rotationDetect.js"></script>
+<script src="/public/js/mobileBrowser.js"></script>
+<script src="/public/js/rotationDetect.js"></script>
