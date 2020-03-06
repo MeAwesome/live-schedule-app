@@ -1,0 +1,218 @@
+[data-theme="dark"] {
+     --nav-color: #414141;
+     --select-color: #1158A5;
+     --font-color: #c9d1d3;
+     --bg-color: #525252;
+     --header-color: #414141;
+     --highlight-color: #1158A5;
+     --header-text-color: #6698FF;
+     --bs-background-color: #4d4d4d;
+}
+ [data-theme="light"] {
+     --nav-color: #004794;
+     --select-color: #1158A5;
+     --font-color: black;
+     --bg-color: #FFFFFF;
+     --header-color: #e8ebe9;
+     --highlight-color: #87CEFA;
+     --header-text-color: #6698FF;
+     --bs-background-color: #ededed;
+}
+ html{
+     box-sizing:border-box;
+     background-color: var(--bg-color);
+     overflow:none;
+     height:100%;
+     width:100%;
+     position:relative;
+}
+ *, *:before, *:after{
+     box-sizing:inherit;
+}
+ *{
+     margin:0;
+     padding:0;
+     border:0;
+     font-family: 'Rubik', sans-serif;
+     color: var(--font-color);
+}
+ body{
+     margin:0;
+     height:100%;
+     width:100%;
+     position: fixed;
+}
+ nav{
+     width:100%;
+     height:11vh;
+     background-color: var(--nav-color);
+     position:fixed;
+     bottom:0;
+     box-shadow: 0px 0px 5px #414141;
+}
+ a{
+     text-decoration:none;
+     height:inherit;
+     width:inherit;
+}
+ .content{
+     width:100%;
+     height:100%;
+}
+ .navbuttons{
+     height:100%;
+}
+ .navbutton{
+     width:20%;
+     height:100%;
+     margin:0;
+     white-space:nowrap;
+     float:left;
+     text-align:center;
+}
+ .navbutton img{
+     width: 24px;
+     height: 24px;
+}
+ .centerHelper{
+     display:inline-block;
+     height:100%;
+     vertical-align:middle;
+}
+ .center{
+     vertical-align:middle;
+}
+ .hideDIV{
+     display:none
+}
+ .showDIV{
+     display:block
+}
+ #selectedNavButton{
+     background-color: var(--select-color);
+}
+ .navbutton img{
+     width:24px;
+     height:24px;
+}
+ #selectedNavButton img{
+     width:40px;
+     height:40px;
+}
+ #header{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: var(--header-color);
+     box-shadow: 0px 0px 5px #414141;
+     height: 8vh;
+}
+ #headerText{
+     font-size:5.5vh;
+}
+ #popup{
+     z-index:3;
+     position:absolute;
+     background-color: var(--highlight-color);
+     padding:0;
+     opacity: 0.95;
+     filter: alpha(opacity=95);
+     text-align: center;
+}
+ #popup-header{
+     height:8%;
+     max-height:8%;
+}
+ #popup-message{
+     height:70%;
+     max-height:70%;
+}
+ #popup-exit-message{
+     height:10%;
+     max-height:10%;
+}
+ @media screen and (orientation:landscape) {
+     #popup{
+         margin-left:35vw;
+         margin-top: 30vh;
+         width:30vw;
+         height:40vh;
+    }
+     #popup-message{
+         max-width: 30vw;
+    }
+}
+ @media screen and (orientation:portrait) {
+     #popup{
+         margin-left:20vw;
+         margin-top: 30vh;
+         width:60vw;
+         height:40vh;
+    }
+     #popup-message{
+         max-width: 60vw;
+    }
+}
+ .disable-selection {
+     -moz-user-select: none;
+     -ms-user-select: none;
+     -khtml-user-select: none;
+     -webkit-user-select: none;
+     -webkit-touch-callout: none;
+}
+ .animation-wrapper {
+     -webkit-animation: fadein 0.5s;
+    /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 0.5s;
+    /* Firefox < 16 */
+     -ms-animation: fadein 0.5s;
+    /* Internet Explorer */
+     -o-animation: fadein 0.5s;
+    /* Opera < 12.1 */
+     animation: fadein 0.5s;
+}
+ @keyframes fadein {
+     from {
+         opacity: 0;
+    }
+     to {
+         opacity: 1;
+    }
+}
+/* Firefox < 16 */
+ @-moz-keyframes fadein {
+     from {
+         opacity: 0;
+    }
+     to {
+         opacity: 1;
+    }
+}
+/* Safari, Chrome and Opera > 12.1 */
+ @-webkit-keyframes fadein {
+     from {
+         opacity: 0;
+    }
+     to {
+         opacity: 1;
+    }
+}
+/* Internet Explorer */
+ @-ms-keyframes fadein {
+     from {
+         opacity: 0;
+    }
+     to {
+         opacity: 1;
+    }
+}
+/* Opera < 12.1 */
+ @-o-keyframes fadein {
+     from {
+         opacity: 0;
+    }
+     to {
+         opacity: 1;
+    }
+}
+ 

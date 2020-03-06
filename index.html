@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HSE Schedule App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" type="text/css" href="/styling/index.css">
+    <link rel="apple-touch-icon" href="/images/HSEScheduleAppLogo192.png">
+    <link rel="shortcut icon" href="/images/HSEScheduleAppLogo192.png">
+    <link rel="manifest" href="/manifest.json">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300&display=swap" rel="stylesheet">
+    <script src="/serviceworker.js"></script>
+    <script src="/js/classes/Storage.js"></script>
+    <script src="/js/storageChecker.js"></script>
+    <script src="/js/themeSwitcher.js"></script>
+</head>
+
+<body>
+  <div class="content">
+
+    <div class="screenContent">
+
+      <div class="topText">
+        <h1>What's your lunch period?</h1>
+        <h3>This can be changed in settings later</h3>
+      </div>
+
+      <div class="lunchButtons">
+        <a href="/main.html" onclick="setLunch('A')">
+					A Lunch
+				</a>
+
+        <a href="/main.html" onclick="setLunch('B')">
+					B Lunch
+				</a>
+
+        <a href="/main.html" onclick="setLunch('C')">
+					C Lunch
+				</a>
+
+        <a href="/main.html" onclick="setLunch('NONE')">
+					None
+				</a>
+
+        <a href="/main.html" onclick="setLunch('ALL')">
+					All
+				</a>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>

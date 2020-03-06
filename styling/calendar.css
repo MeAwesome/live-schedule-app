@@ -1,0 +1,142 @@
+@media screen and (orientation:landscape){
+     #cal-container{
+         height: 60vh;
+         display: flex;
+         position: relative;
+    }
+     .key {
+       padding-top: 10px;
+         position: absolute;
+         line-height: 25px;
+         right: 0;
+         border-spacing:10px;
+         width: 20%;
+    }
+     table.cal{
+         table-layout: auto;
+         width: 50%;
+         height: 100%;
+         border-collapse: collapse;
+    }
+}
+ @media screen and (orientation:portrait){
+     #cal-container{
+         height: 40vh;
+    }
+     table.cal{
+         table-layout: auto;
+         width: 70%;
+         height: 100%;
+         border-collapse: collapse;
+    }
+     .key {
+         margin-left: 15%;
+         border-spacing:20px;
+         width: 60%;
+    }
+}
+ .cal {
+     border-spacing: 0;
+     border-color: #9ABAD9;
+     margin: 0 auto;
+     margin-top: 20px;
+}
+ .cal td {
+     font-size: 14px;
+     border-style: solid;
+     border-width: 1px;
+     overflow: hidden;
+     word-break: normal;
+     border-color: #000000;
+     color: #444;
+     background-color: #EBF5FF;
+}
+ .cal th {
+     font-size: 14px;
+     font-weight: normal;
+     padding: 8px 10px;
+     border-style: solid;
+     border-width: 1px;
+     overflow: hidden;
+     word-break: normal;
+     border-color: #000000;
+     color: #fff;
+     background-color: #409cff;
+}
+ .cal .cal-month {
+     font-size: 20px;
+     background-color: var(--select-color);
+     text-align: center;
+     vertical-align: center;
+}
+ .cal .cal-header {
+     font-size: 24px;
+     background-color: #dddddd;
+     text-align: center;
+     vertical-align: center;
+     font-weight:bold;
+}
+ .cal .cal-days {
+     font-size: 24px;
+     background-color: #ffffff;
+     text-align: center;
+     vertical-align: center;
+}
+ .cal .calendarOtherMonth {
+     font-size: 24px;
+     background-color: #eeeeee;
+     text-align: center;
+     vertical-align: center;
+}
+ .cal .calendarNoSchool{
+     font-size: 24px;
+     background-color: #bbbbbb;
+     text-align: center;
+     vertical-align: center;
+}
+ .cal .calendarCurrentDay{
+     font-size: 24px;
+     background-color: var(--highlight-color);
+     color: var(--font-color);
+     text-align: center;
+     vertical-align: center;
+}
+ .key {
+     border-collapse:separate;
+}
+ .key td{
+     font-size:14px;
+     padding:0px 6px;
+     border-style:solid;
+     border-width:1px;
+     overflow:hidden;
+     word-break:normal;
+     border-color:black;
+}
+ .key th{
+     font-size:14px;
+     font-weight:normal;
+     padding:0px 6px;
+     border-style:solid;
+     border-width:1px;
+     overflow:hidden;
+     word-break:normal;
+     border-color:transparent;
+}
+ .key .key-today{
+     background-color:var(--highlight-color);
+     border-color:transparent;
+     text-align:left;
+     vertical-align:top
+}
+ .key .key-row{
+     border-color:transparent;
+     text-align:left;
+     vertical-align:top
+}
+ .key .key-noSchool{
+     background-color:#bbbbbb;
+     border-color:transparent;
+     text-align:left;
+     vertical-align:top
+}

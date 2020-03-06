@@ -1,0 +1,59 @@
+@media screen and (orientation:landscape){
+  #bellScheduleTable{
+    width: 50%;
+}
+}
+
+@media screen and (orientation:portrait){
+  #bellScheduleTable{
+    width: 90%;
+}
+
+/* .pageContent{
+  height: 10%;
+  overflow: scroll !important;
+} */
+
+}
+
+.tg {
+    border-collapse:collapse;
+    border-spacing:0;
+    margin:0 auto;
+    margin-top: 20px;
+}
+.tg td{
+    /* line-height: 8.1vh; */
+  /* padding-top: 1.5vh;
+    padding-bottom: 1.5vh; */
+    border-style:solid;
+    border-width:1px;
+    /* overflow:hidden; */
+    word-break:normal;
+    border-color:black;
+    background-color: var(--bs-background-color);
+}
+
+.tg th{
+    /* font-size:14px; */
+    font-weight:normal;
+    padding:10px 5px;
+    border-style:solid;
+    border-width:1px;
+    /* overflow:hidden; */
+    word-break:normal;
+    border-color:black;
+}
+.tg .bellRow{
+    border-color:inherit;
+    text-align:center;
+    vertical-align: middle;
+}
+.selected{
+    background-color: var(--highlight-color) !important;
+}
+.noSchool{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 50px;
+}
