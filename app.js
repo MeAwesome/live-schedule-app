@@ -10,11 +10,7 @@ app.get("/", function(req, res){
 app.use("/public", express.static(__dirname + "/public"));
 serv.listen(port);
 if(port != process.env.PORT){
-	try{
-		__ConnectTo__ = os.networkInterfaces()["Wi-Fi"][1].address + ":" + port;
-	} catch {
-		__ConnectTo__ = os.networkInterfaces()["Ethernet"][1].address + ":" + port;
-	}
+		__ConnectTo__ = os.networkInterfaces()["Wi-Fi"][1].address + ":" + port || os.networkInterfaces()["Ethernet"][1].address + ":" + port;
 	console.clear();
 	console.log("--> Webpage Started On } " + __ConnectTo__);
 }
