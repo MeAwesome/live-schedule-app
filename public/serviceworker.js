@@ -2,60 +2,60 @@ const CACHE_NAME = "HSEScheduleAppCache";
 
 const FILES_TO_CACHE = [
   "/",
-  "/index.html",
-  "/main.html",
-  "/manifest.json",
-  "/serviceworker.js",
+  "/public/index.html",
+  "/public/main.html",
+  "/public/manifest.json",
+  "/public/serviceworker.js",
 
-  "/js/classes/DateTime.js",
-  "/js/classes/Sheets.js",
-  "/js/classes/Schedule.js",
-  "/js/classes/PopUp.js",
-  "/js/classes/Storage.js",
+  "/public/js/classes/DateTime.js",
+  "/public/js/classes/Sheets.js",
+  "/public/js/classes/Schedule.js",
+  "/public/js/classes/PopUp.js",
+  "/public/js/classes/Storage.js",
 
-  "/js/main.js",
-  "/js/ScriptPlus.js",
-  "/js/pageSwitcher.js",
-  "/js/scheduleTable.js",
-  "/js/calendarScript.js",
-  "/js/storageChecker.js",
-  "/js/themeSwitcher.js",
-  "/js/completionCircle.js",
-  "/js/twitterFeed.js",
+  "/public/js/main.js",
+  "/public/js/ScriptPlus.js",
+  "/public/js/pageSwitcher.js",
+  "/public/js/scheduleTable.js",
+  "/public/js/calendarScript.js",
+  "/public/js/storageChecker.js",
+  "/public/js/themeSwitcher.js",
+  "/public/js/completionCircle.js",
+  "/public/js/twitterFeed.js",
 
-  "/styling/index.css",
-  "/styling/style.css",
-  "/styling/about.css",
-  "/styling/bellSchedule.css",
-  "/styling/home.css",
-  "/styling/calendar.css",
-  "/styling/settings.css",
+  "/public/styling/index.css",
+  "/public/styling/style.css",
+  "/public/styling/about.css",
+  "/public/styling/bellSchedule.css",
+  "/public/styling/home.css",
+  "/public/styling/calendar.css",
+  "/public/styling/settings.css",
 
 
-  "/images/HSEScheduleAppLogo192.png",
-  "/images/HSEScheduleAppLogo512.png",
+  "/public/images/HSEScheduleAppLogo192.png",
+  "/public/images/HSEScheduleAppLogo512.png",
 
-  "/images/isaac.jpg",
-  "/images/ethan.jpg",
+  "/public/images/isaac.jpg",
+  "/public/images/ethan.jpg",
 
-  "/images/selected/about.png",
-  "/images/selected/schedule.png",
-  "/images/selected/home.png",
-  "/images/selected/calendar.png",
-  "/images/selected/settings.png",
+  "/public/images/selected/about.png",
+  "/public/images/selected/schedule.png",
+  "/public/images/selected/home.png",
+  "/public/images/selected/calendar.png",
+  "/public/images/selected/settings.png",
 
-  "/images/unselected/about.png",
-  "/images/unselected/schedule.png",
-  "/images/unselected/home.png",
-  "/images/unselected/calendar.png",
-  "/images/unselected/settings.png"
+  "/public/images/unselected/about.png",
+  "/public/images/unselected/schedule.png",
+  "/public/images/unselected/home.png",
+  "/public/images/unselected/calendar.png",
+  "/public/images/unselected/settings.png"
 ];
 
 const publicKey = "BHV9vDKgZXPZH3S--ZPlDH4R4LQ636jvztTtYQppjrpVfJY3btRPzFhuvGY_xFrvpvCeAvMnJ7p3Vh2rykeaV54";
 
 if("serviceWorker" in navigator){
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/serviceworker.js")
+    navigator.serviceWorker.register("/public/serviceworker.js")
       .then((reg) => {
         registration = reg;
       }).catch(function(err){
