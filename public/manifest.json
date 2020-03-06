@@ -4,17 +4,17 @@
     "theme_color":"#004794",
     "background_color":"#FFFFFF",
     "display":"standalone",
-    "scope":"/",
-    "start_url":"/index.html",
+    "scope":"/public/",
+    "start_url":"/public/index.html",
     "orientation":"portrait",
     "icons":[
         {
-          "src":"/images/HSEScheduleAppLogo192.png",
+          "src":"/public/images/HSEScheduleAppLogo192.png",
           "type":"image/png",
           "sizes":"192x192"
         },
       {
-          "src":"/images/HSEScheduleAppLogo512.png",
+          "src":"/public/images/HSEScheduleAppLogo512.png",
           "type":"image/png",
           "sizes":"512x512"
       }
