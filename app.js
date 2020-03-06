@@ -2,20 +2,19 @@ var express = require("express");
 var os = require("os");
 var app = express();
 var serv = require("http").Server(app);
-var port = 51000;
-
+var io = require("socket.io")(serv,{});
+var port = process.env.PORT || 51000;
 app.get("/", function(req, res){
-	res.sendFile(__dirname + "/index.html");
+	res.sendFile(__dirname + "/public/index.html");
 });
-app.use("/", express.static(__dirname + "/"));
-
-var __ConnectTo__;
-try{
-	__ConnectTo__ = os.networkInterfaces()["Wi-Fi"][1].address + ":" + port;
-} catch {
-	__ConnectTo__ = os.networkInterfaces()["Ethernet"][1].address + ":" + port;
-}
-
+app.use("/public", express.static(__dirname + "/public"));
 serv.listen(port);
-console.clear();
-console.log("--> Webpage Started On } " + __ConnectTo__);
+if(port != process.env.PORT){
+	try{
+		__ConnectTo__ = os.networkInterfaces()["Wi-Fi"][1].address + ":" + port;
+	} catch {
+		__ConnectTo__ = os.networkInterfaces()["Ethernet"][1].address + ":" + port;
+	}
+	console.clear();
+	console.log("--> Webpage Started On } " + __ConnectTo__);
+}
