@@ -9,7 +9,7 @@
 }
  @font-face {
      font-family: "Rubik-Clock";
-     src: url("/fonts/Rubik-MonoClock.ttf") format("truetype");
+     src: url("/public/fonts/Rubik-MonoClock.ttf") format("truetype");
 }
  #timeText{
      font-family: 'Rubik-Clock' !important;

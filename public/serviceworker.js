@@ -1,7 +1,7 @@
 const CACHE_NAME = "HSEScheduleAppCache";
 
 const FILES_TO_CACHE = [
-  "/",
+  "/public/",
   "/public/index.html",
   "/public/main.html",
   "/public/manifest.json",

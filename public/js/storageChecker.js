@@ -32,12 +32,12 @@ function setStorageAttributes(){
 
 function showLaunchScreen(){
   if(storage.get("selectedLunch") == "UNCHOSEN"){
-    if(window.location.pathname == "/" || window.location.pathname == "/main.html"){
-      window.location.replace("/index.html");
+    if(window.location.pathname == "/public/" || window.location.pathname == "/public/main.html"){
+      window.location.replace("/public/index.html");
     }
   } else {
-    if(window.location.pathname == "/" || window.location.pathname == "/index.html"){
-      window.location.replace("/main.html");
+    if(window.location.pathname == "/public/" || window.location.pathname == "/public/index.html"){
+      window.location.replace("/public/main.html");
     }
   }
 }

@@ -69,9 +69,9 @@ function highlightButton(button){
   buttons.forEach((btn) => {
     if(document.getElementById(btn) != null && document.getElementById(btn).firstElementChild){
       document.getElementById(btn).firstElementChild.removeAttribute("id");
-      document.getElementById(btn).firstElementChild.lastElementChild.setAttribute("src", "/images/unselected/" + icons[buttons.indexOf(btn)]);
+      document.getElementById(btn).firstElementChild.lastElementChild.setAttribute("src", "/public/images/unselected/" + icons[buttons.indexOf(btn)]);
     }
   });
   document.getElementById(buttons[button]).firstElementChild.setAttribute("id", "selectedNavButton");
-  document.getElementById(buttons[button]).firstElementChild.lastElementChild.setAttribute("src", "/images/selected/" + icons[button]);
+  document.getElementById(buttons[button]).firstElementChild.lastElementChild.setAttribute("src", "/public/images/selected/" + icons[button]);
 }
