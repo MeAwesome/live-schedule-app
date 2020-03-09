@@ -37,7 +37,6 @@ function Connection(socket){
 	this.socketId = socket.id;
 }
 
-/*
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
 const TOKEN_PATH = 'token.json';
@@ -101,4 +100,4 @@ function listMajors(auth) {
       console.log('No data found.');
     }
   });
-}*/
+}
