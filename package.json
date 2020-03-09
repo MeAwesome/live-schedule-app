@@ -8,7 +8,7 @@
     "socket.io": "^2.3.0"
   },
   "engines": {
-    "node": "4.7.0"
+    "node": "13.10.1"
   },
   "scripts": {
     "start": "node app.js"
