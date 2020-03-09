@@ -4,6 +4,9 @@ var app = express();
 var serv = require("http").Server(app);
 var io = require("socket.io")(serv,{});
 var port = process.env.PORT || 51000;
+const fs = require('fs');
+const readline = require('readline');
+const google = require('googleapis').google;
 app.get("/", function(req, res){
 	res.sendFile(__dirname + "/public/index.html");
 });
@@ -33,10 +36,6 @@ function Connection(socket){
 	this.socket = socket;
 	this.socketId = socket.id;
 }
-
-const fs = require('fs');
-const readline = require('readline');
-const google = require('googleapis').google;
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
