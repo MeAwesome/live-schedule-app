@@ -4,9 +4,9 @@ var app = express();
 var serv = require("http").Server(app);
 var io = require("socket.io")(serv,{});
 var port = process.env.PORT || 51000;
-//const fs = require('fs');
-//const readline = require('readline');
-//const google = require('googleapis').google;
+const fs = require('fs');
+const readline = require('readline');
+const google = require('googleapis').google;
 app.get("/", function(req, res){
 	res.sendFile(__dirname + "/public/index.html");
 });
