@@ -1,6 +1,8 @@
 //Developed By: Isaac Robbins
 //For Use With: HSE Schedule App
 
+const socket = io();
+
 const googleSheetURL = "https://docs.google.com/spreadsheets/d/1QBUjDIa7H-UhTKOe7znd2h9XYn1uDeuZrXzuR0C7KYk/gviz/tq?sheet=";
 
 const globalTime = new DateTime();

@@ -26,8 +26,11 @@ io.on("connection", function(socket){
 
 	socket.emit("connected_to_server");
 
+	console.log(connections);
+
 	socket.on("disconnect", () => {
 		delete connections[socket.id];
+		console.log(connections);
 	});
 
 });
