@@ -1,17 +1,18 @@
 {
-  "name":"hseschedule",
-  "version":"1.0.0",
-  "main":"app.js",
+  "name": "hseschedule",
+  "version": "1.0.0",
+  "main": "app.js",
   "dependencies": {
-    "express":"^4.16.4",
-    "socket.io":"^2.1.1"
+    "express": "^4.16.4",
+    "googleapis": "^39.2.0",
+    "socket.io": "^2.1.1"
   },
-  "engines":{
-    "node":"4.1.x"
+  "engines": {
+    "node": "4.1.x"
   },
-  "scripts":{
-    "start":"node app.js"
+  "scripts": {
+    "start": "node app.js"
   },
-  "author":"Isaac Robbins",
-  "license":"MIT"
+  "author": "Isaac Robbins",
+  "license": "MIT"
 }
