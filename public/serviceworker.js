@@ -1,4 +1,4 @@
-const CACHE_NAME = "HSEScheduleAppCache";
+const CACHE_NAME = "HSEScheduleApp";
 
 const FILES_TO_CACHE = [
   "/public/",
