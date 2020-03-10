@@ -37,6 +37,10 @@ function Connection(socket){
 	this.socketId = socket.id;
 }
 
+function sendScheduleLayout(data){
+	io.emit("layout_data", data);
+}
+
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
 const TOKEN_PATH = 'token.json';
@@ -94,12 +98,10 @@ function listMajors(auth) {
 	    if (err) return console.log('The API returned an error: ' + err);
 	    const rows = res.data.values;
 	    if (rows.length) {
-	      rows.forEach((row) => {
-	        console.log(row);
-	      });
+	      sendScheduleLayout(rows);
 	    } else {
 	      console.log('No data found.');
 	    }
 	  });
-	}, 1000);
+	}, 5000);
 }

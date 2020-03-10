@@ -20,6 +20,10 @@ var periodShowLower = undefined;
 var showLunch = undefined;
 var tickCount = 0;
 
+socket.on("layout_data", (data) => {
+  console.log(data);
+});
+
 preupdate();
 
 async function preupdate(){
