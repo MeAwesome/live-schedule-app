@@ -26,11 +26,8 @@ io.on("connection", function(socket){
 
 	socket.emit("connected_to_server");
 
-	console.log(connections);
-
 	socket.on("disconnect", () => {
 		delete connections[socket.id];
-		console.log(connections);
 	});
 
 });
@@ -88,19 +85,21 @@ function getNewToken(oAuth2Client, callback) {
 
 function listMajors(auth) {
   const sheets = google.sheets({version: 'v4', auth});
-  sheets.spreadsheets.values.get({
-    spreadsheetId: '1QBUjDIa7H-UhTKOe7znd2h9XYn1uDeuZrXzuR0C7KYk',
-    range: 'A2:E',
-  }, (err, res) => {
-    if (err) return console.log('The API returned an error: ' + err);
-    const rows = res.data.values;
-    if (rows.length) {
-      console.log('Name, Major:');
-      rows.map((row) => {
-        console.log(`${row[0]}, ${row[4]}`);
-      });
-    } else {
-      console.log('No data found.');
-    }
-  });
+	var request = {
+    spreadsheetId: '1kCDJnekPOR12K9LcIqjlWf6d9nN-COFThr4fPln_7FM',
+    range: 'A2:G',
+  };
+	setInterval(() => {
+		sheets.spreadsheets.values.get(request, (err, res) => {
+	    if (err) return console.log('The API returned an error: ' + err);
+	    const rows = res.data.values;
+	    if (rows.length) {
+	      rows.forEach((row) => {
+	        console.log(row);
+	      });
+	    } else {
+	      console.log('No data found.');
+	    }
+	  });
+	}, 1000);
 }
