@@ -22,6 +22,7 @@ if(port != process.env.PORT){
 
 
 var connections = {};
+var lastSecond = moment().get("second");
 
 io.on("connection", function(socket){
 
@@ -45,12 +46,14 @@ function sendScheduleLayout(data){
 }
 
 function sendTime(){
-	io.emit("current_time", {
-		hour:moment().get("hour"),
-		minute:moment().get("minute"),
-		second:moment().get("second"),
-		millisecond:moment().get("millisecond")
-	});
+	if(moment().get("second") != lastSecond){
+		lastSecond = moment().get("second");
+		io.emit("current_time", {
+			hour:moment().get("hour"),
+			minute:moment().get("minute"),
+			second:moment().get("second")
+		});
+	}
 }
 
 setInterval(() => {
