@@ -24,6 +24,10 @@ socket.on("layout_data", (data) => {
   console.log(data);
 });
 
+socket.on("current_time", (time) => {
+  console.log(time);
+});
+
 preupdate();
 
 async function preupdate(){

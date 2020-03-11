@@ -1,5 +1,6 @@
 var express = require("express");
 var os = require("os");
+var moment = require("moment");
 var app = express();
 var serv = require("http").Server(app);
 var io = require("socket.io")(serv,{});
@@ -17,6 +18,8 @@ if(port != process.env.PORT){
 	console.clear();
 	console.log("--> Webpage Started On } " + __ConnectTo__);
 }
+
+
 
 var connections = {};
 
@@ -41,13 +44,27 @@ function sendScheduleLayout(data){
 	io.emit("layout_data", data);
 }
 
-const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+function sendTime(){
+	io.emit("current_time", {
+		hour:moment().get("hour"),
+		minute:moment().get("minute"),
+		second:moment().get("second"),
+		millisecond:moment().get("millisecond")
+	});
+}
+
+setInterval(() => {
+	sendTime();
+}, 100);
+
+
+const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 
 const TOKEN_PATH = 'token.json';
 
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
-  authorize(JSON.parse(content), listMajors);
+  authorize(JSON.parse(content), getLayout);
 });
 
 function authorize(credentials, callback) {
@@ -87,7 +104,7 @@ function getNewToken(oAuth2Client, callback) {
   });
 }
 
-function listMajors(auth) {
+function getLayout(auth) {
   const sheets = google.sheets({version: 'v4', auth});
 	var request = {
     spreadsheetId: '1kCDJnekPOR12K9LcIqjlWf6d9nN-COFThr4fPln_7FM',
