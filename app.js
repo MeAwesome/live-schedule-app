@@ -22,10 +22,9 @@ if(port != process.env.PORT){
 
 
 var connections = {};
-var ticks = 0;
-var refreshFrequency = 5;
-var scheduleLayout = undefined;
-var schedules = undefined;
+var refreshFrequency = 5; //Fastest Value is 5
+var scheduleLayout = [];
+var schedules = [];
 var lastSecond = moment().get("second");
 
 io.on("connection", function(socket){
@@ -64,6 +63,8 @@ function sendTime(){
 
 function runner(auth){
 	sheets = google.sheets({version: 'v4', auth});
+	ticks = 0;
+	miniTicks = 0;
 	setInterval(async() => {
 		if(ticks == 0){
 			var mostRecent = await getLayout("Monthly Planner");
@@ -71,6 +72,10 @@ function runner(auth){
 				scheduleLayout = mostRecent;
 				sendScheduleLayout();
 			}
+			if(miniTicks == 0){
+
+			}
+			miniTicks = (miniTicks + 1) % (refreshFrequency * 5);
 		}
 		sendTime();
 		ticks = (ticks + 1) % (refreshFrequency * 10);
@@ -78,7 +83,7 @@ function runner(auth){
 }
 
 function arraysEqual(a1,a2){
-    return JSON.stringify(a1) == JSON.stringify(a2);
+	return JSON.stringify(a1) == JSON.stringify(a2);
 }
 
 
