@@ -74,7 +74,6 @@ function runner(auth){
 		}
 		sendTime();
 		ticks = (ticks + 1) % (refreshFrequency * 10);
-		console.log(ticks);
 	}, 100);
 }
 
