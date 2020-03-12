@@ -22,6 +22,10 @@ if(port != process.env.PORT){
 
 
 var connections = {};
+var ticks = 0;
+var refreshFrequency = 5;
+var scheduleLayout = undefined;
+var schedules = undefined;
 var lastSecond = moment().get("second");
 
 io.on("connection", function(socket){
@@ -29,6 +33,8 @@ io.on("connection", function(socket){
 	connections[socket.id] = new Connection(socket);
 
 	socket.emit("connected_to_server");
+
+	socket.emit("layout_data", scheduleLayout);
 
 	socket.on("disconnect", () => {
 		delete connections[socket.id];
@@ -41,8 +47,8 @@ function Connection(socket){
 	this.socketId = socket.id;
 }
 
-function sendScheduleLayout(data){
-	io.emit("layout_data", data);
+function sendScheduleLayout(){
+	io.emit("layout_data", scheduleLayout);
 }
 
 function sendTime(){
@@ -56,9 +62,28 @@ function sendTime(){
 	}
 }
 
-setInterval(() => {
-	sendTime();
-}, 100);
+function runner(auth){
+	sheets = google.sheets({version: 'v4', auth});
+	setInterval(async() => {
+		if(ticks == 0){
+			var mostRecent = await getLayout("Monthly Planner");
+			if(!arraysEqual(scheduleLayout, mostRecent)){
+				scheduleLayout = mostRecent;
+				sendScheduleLayout();
+			}
+		}
+		sendTime();
+		ticks = (ticks + 1) % (refreshFrequency * 10);
+		console.log(ticks);
+	}, 100);
+}
+
+function arraysEqual(a1,a2){
+    return JSON.stringify(a1) == JSON.stringify(a2);
+}
+
+
+
 
 
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
@@ -67,15 +92,14 @@ const TOKEN_PATH = 'token.json';
 
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
-  authorize(JSON.parse(content), getLayout);
+  authorize(JSON.parse(content), runner);
 });
 
 function authorize(credentials, callback) {
   const client_secret = credentials.installed.client_secret;
 	const client_id = credentials.installed.client_id;
 	const redirect_uris = credentials.installed.redirect_uris;
-  const oAuth2Client = new google.auth.OAuth2(
-      client_id, client_secret, redirect_uris[0]);
+  const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
   fs.readFile(TOKEN_PATH, (err, token) => {
     if (err) return getNewToken(oAuth2Client, callback);
     oAuth2Client.setCredentials(JSON.parse(token));
@@ -92,7 +116,7 @@ function getNewToken(oAuth2Client, callback) {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-  });
+	});
   rl.question('Enter the code from that page here: ', (code) => {
     rl.close();
     oAuth2Client.getToken(code, (err, token) => {
@@ -102,26 +126,32 @@ function getNewToken(oAuth2Client, callback) {
         if (err) return console.error(err);
         console.log('Token stored to', TOKEN_PATH);
       });
-      callback(oAuth2Client);
+	    callback(oAuth2Client);
     });
   });
 }
 
-function getLayout(auth) {
-  const sheets = google.sheets({version: 'v4', auth});
+async function getLayout(sheetName) {
 	var request = {
     spreadsheetId: '1kCDJnekPOR12K9LcIqjlWf6d9nN-COFThr4fPln_7FM',
-    range: 'A2:G',
+    range: sheetName + '!A2:G',
   };
-	setInterval(() => {
-		sheets.spreadsheets.values.get(request, (err, res) => {
-	    if (err) return console.log('The API returned an error: ' + err);
-	    const rows = res.data.values;
-	    if (rows.length) {
-	      sendScheduleLayout(rows);
-	    } else {
-	      console.log('No data found.');
-	    }
-	  });
-	}, 5000);
+	var data = null;
+	sheets.spreadsheets.values.get(request, (err, res) => {
+	   if (err) return console.log('The API returned an error: ' + err);
+	   const rows = res.data.values;
+	   if(rows.length){
+			 data = rows;
+	   } else {
+	     data = undefined;
+	   }
+	 });
+	 return new Promise((resolve) => {
+		 var loaded = setInterval(() => {
+			 if(data != null){
+				 clearInterval(loaded);
+				 resolve(data);
+			 }
+		 }, 100, loaded);
+	 });
 }
