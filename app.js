@@ -13,7 +13,7 @@ const port = process.env.PORT || 51000;
 
 const _ = require("underscore");
 const moment = require("moment");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 const Datastore = require('nedb');
 const Network = require("./server/classes/Network.js");
 
