@@ -1,6 +1,6 @@
 {
-  "name": "hse-schedule",
-  "version": "1.2.0",
+  "name": "scheduletesting",
+  "version": "2.0.0",
   "main": "app.js",
   "dependencies": {
     "express": "^4.17.1",
