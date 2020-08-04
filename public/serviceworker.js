@@ -8,7 +8,7 @@ const publicKey = "BHV9vDKgZXPZH3S--ZPlDH4R4LQ636jvztTtYQppjrpVfJY3btRPzFhuvGY_x
 
 if("serviceWorker" in navigator){
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/serviceworker.js")
+    navigator.serviceWorker.register("/public/serviceworker.js")
       .then((reg) => {
         registration = reg;
       }).catch(function(err){
