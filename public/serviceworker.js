@@ -1,10 +1,8 @@
-const CACHE_NAME = "HSEScheduleAppCache";
+const CACHE_NAME = "HSEScheduleApp";
 
 const FILES_TO_CACHE = [
-  "/public"
+  "/public/"
 ];
-
-const publicKey = "BHV9vDKgZXPZH3S--ZPlDH4R4LQ636jvztTtYQppjrpVfJY3btRPzFhuvGY_xFrvpvCeAvMnJ7p3Vh2rykeaV54";
 
 if("serviceWorker" in navigator){
   window.addEventListener("load", () => {
