@@ -12,7 +12,7 @@ const port = process.env.PORT || 51000;
 //Custom Requires
 
 const _ = require("underscore");
-const moment = require("moment");
+const moment = require("moment-timezone");
 //const bcrypt = require("bcrypt");
 const Datastore = require('nedb');
 const Network = require("./server/classes/Network.js");
@@ -63,6 +63,8 @@ function readDatabases(){
 //Server Setup & Initiation
 
 function createServer(){
+	moment.tz.setDefault("America/Indiana/Indianapolis");
+
 	app.get("/", (req, res) => {
 		res.sendFile(__dirname + "/public/index.html");
 	});
