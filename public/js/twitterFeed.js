@@ -4,7 +4,7 @@ var screenWidth = window.screen.width;
 var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-if(vh >= vw){
+if (vh >= vw) {
   vh *= 0.6;
 } else {
   vh *= 0.7;
@@ -22,7 +22,7 @@ twitterFeed.setAttribute("data-theme", "dark");
 twitterFeed.setAttribute("href", "https://twitter.com/HSESchools?ref_src=twsrc%5Etfw");
 twitterElem.appendChild(twitterFeed);
 
-function showCredits(){
+function showCredits() {
   var credits = document.getElementById("credits");
   var twitterToHide = document.getElementById("twitter");
   var linksToHide = document.getElementById("links");
@@ -33,7 +33,7 @@ function showCredits(){
   credits.style.display = "block";
 }
 
-function showTwitter(){
+function showTwitter() {
   var credits = document.getElementById("credits");
   var twitterToHide = document.getElementById("twitter");
   var linksToHide = document.getElementById("links");
@@ -44,7 +44,7 @@ function showTwitter(){
   credits.style.display = "none";
 }
 
-function creditsReset(){
+function creditsReset() {
   var credits = document.getElementById("credits");
   var twitterToHide = document.getElementById("twitter");
   var linksToHide = document.getElementById("links");
@@ -59,22 +59,21 @@ var mql = window.matchMedia("(orientation: portrait)");
 
 
 mql.addListener(function(m) {
-	if(m.matches) {
-		showTwitter();
-	}
-	else {
+  if (m.matches) {
+    showTwitter();
+  } else {
     creditsReset();
-	}
+  }
 });
 
-function resizeTwitter(){
-  try{
+function resizeTwitter() {
+  try {
     var feed = document.getElementById("twitter-widget-0");
     var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     feed.style.width = vw.toString();
     feed.style.height = vh.toString();
   } catch {
-    
+
   }
 }

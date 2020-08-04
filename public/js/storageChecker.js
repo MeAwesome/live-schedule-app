@@ -23,20 +23,15 @@ function setStorageAttributes(){
   if(storage.get("showCircle") == undefined){
     storage.set("showCircle", true);
   }
-  storage.getAllNames().forEach((name) => {
-    if(name != "selectedLunch" && name != "theme" && name != "popups" && name != "animationState" && name != "showCircle"){
-      storage.remove(name);
-    }
-  });
 }
 
 function showLaunchScreen(){
   if(storage.get("selectedLunch") == "UNCHOSEN"){
-    if(window.location.pathname == "/public/" || window.location.pathname == "/public/main.html"){
+    if(window.location.pathname == "/" || window.location.pathname == "/public/main.html"){
       window.location.replace("/public/index.html");
     }
   } else {
-    if(window.location.pathname == "/public/" || window.location.pathname == "/public/index.html"){
+    if(window.location.pathname == "/" || window.location.pathname == "/public/index.html"){
       window.location.replace("/public/main.html");
     }
   }

@@ -12,8 +12,8 @@ bgColorCircle = "#6698FF";
 
 
 function getCanvas(){
-  if(currentSchedule.layout[0].periodNum == "Special Day"){
-      document.getElementById("completionCircle").style.display = "none";
+  if(schedule.metadata.type != "school day"){
+      //document.getElementById("completionCircle").style.display = "none";
 	}
   canvas = document.getElementById("completionCircle");
   surface = canvas.getContext("2d");
@@ -59,28 +59,30 @@ function clearCircle(){
 }
 
 function completeCircle(percentage){
-  clearCircle();
-  if(showCircle == true){
-    var width = canvas.style.width.substring(0, canvas.style.width.indexOf("px"));
-    var height = canvas.style.height.substring(0, canvas.style.height.indexOf("px"));
-    var radius = width / 3.1;
-    var endingPos = (percentage * 2 * Math.PI) - (0.5 * Math.PI);
-    if(endingPos == startingPos){
-      endingPos = 3.5 * Math.PI;
+  if(surface != undefined && percentage != undefined){
+    clearCircle();
+    if(showCircle == true){
+      var width = canvas.style.width.substring(0, canvas.style.width.indexOf("px"));
+      var height = canvas.style.height.substring(0, canvas.style.height.indexOf("px"));
+      var radius = width / 3.1;
+      var endingPos = (percentage * 2 * Math.PI) - (0.5 * Math.PI);
+      if(endingPos == startingPos){
+        endingPos = 3.5 * Math.PI;
+      }
+      if(landOrPort() == "portrait"){
+        radius = height / 2.1;
+      }
+      surface.beginPath();
+      surface.strokeStyle = bgColorCircle;
+      surface.lineWidth = 2;
+      surface.arc(width / 2, height / 2, radius, 0, 2 * Math.PI);
+      surface.stroke();
+      surface.beginPath();
+      surface.strokeStyle = fgColorCircle;
+      surface.lineWidth = 5;
+      surface.arc(width / 2, height / 2, radius, startingPos, endingPos);
+      surface.stroke();
     }
-    if(landOrPort() == "portrait"){
-      radius = height / 2.1;
-    }
-    surface.beginPath();
-    surface.strokeStyle = bgColorCircle;
-    surface.lineWidth = 2;
-    surface.arc(width / 2, height / 2, radius, 0, 2 * Math.PI);
-    surface.stroke();
-    surface.beginPath();
-    surface.strokeStyle = fgColorCircle;
-    surface.lineWidth = 5;
-    surface.arc(width / 2, height / 2, radius, startingPos, endingPos);
-    surface.stroke();
   }
 }
 

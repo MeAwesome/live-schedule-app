@@ -1,260 +1,276 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>HSE Schedule App</title>
-      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <link rel="stylesheet" type="text/css" href="/public/styling/about.css">
-      <link rel="stylesheet" type="text/css" href="/public/styling/bellSchedule.css">
-      <link rel="stylesheet" type="text/css" href="/public/styling/home.css">
-      <link rel="stylesheet" type="text/css" href="/public/styling/calendar.css">
-      <link rel="stylesheet" type="text/css" href="/public/styling/settings.css">
-      <link rel="stylesheet" type="text/css" href="/public/styling/style.css">
-      <link rel="apple-touch-icon" href="/public/images/HSEScheduleAppLogo192.png">
-      <link rel="shortcut icon" href="/public/images/HSEScheduleAppLogo192.png">
-      <link rel="manifest" href="/public/manifest.json">
-      <link href="https://fonts.googleapis.com/css?family=Rubik:300&display=swap" rel="stylesheet">
-      <script src="https://www.gstatic.com/charts/loader.js"></script>
-      <script src="/public/serviceworker.js"></script>
-      <script src="/socket.io/socket.io.js"></script>
-      <script src="/public/js/classes/DateTime.js"></script>
-      <script src="/public/js/classes/Sheets.js"></script>
-      <script src="/public/js/classes/Schedule.js"></script>
-      <script src="/public/js/classes/PopUp.js"></script>
-      <script src="/public/js/classes/Storage.js"></script>
-      <script src="/public/js/addons.js"></script>
-      <script src="/public/js/storageChecker.js"></script>
-      <script src="/public/js/pageSwitcher.js"></script>
-      <script src="/public/js/scheduleTable.js"></script>
-      <script src="/public/js/themeSwitcher.js"></script>
-      <script src="/public/js/completionCircle.js"></script>
-      <script src="/public/js/calendarScript.js"></script>
-      <script src="/public/js/main.js"></script>
-      <script src="/public/js/animations.js"></script>
-      <script src="/public/js/swipe.js"></script>
 
-   </head>
-   <body class="disable-selection">
-      <div id="rotationContainer">
-         <h1 id="rotationText">Please Rotate Screen</h1>
-      </div>
-      <div id="contentHolder" class="content">
-         <div class="screenContent">
-            <div id="popup" class="hideDIV">
-               <h2 id="popup-header"></h2>
-               <br>
-               <p id="popup-message"></p>
-               <h4 id="popup-exit-message"><i><u>Tap To Dismiss</u></i></h4>
-            </div>
-            <div id="ABOUT SCREEN" class="hideDIV">
-               <div id="header">
-                  <h1 id="headerText">Info Board</h1>
-               </div>
-               <div id="about" class="pageContent">
-                  <div id="twitter">
-                  </div>
-                  <script src="/public/js/twitterFeed.js"></script>
-                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                  <div class="info">
-                     <div id="credits" class="pageContent">
-                        <div id="infoTitle">
-                           <h2>Made by Ethan Donahue and Isaac Robbins</h2>
-                        </div>
-                        <div class="pfpImages">
-                           <img alt="Ethan" class="pfp" src="/public/images/ethan.jpg"></img>
-                           <img alt="Isaac" class="pfp" src="/public/images/isaac.jpg"></img>
-                        </div>
-                     </div>
-                     <div id="links">
-                        <div class="aboutLink">
-                           <a href="https://forms.gle/WdAiavnnCCVT7Eur9">Submit a problem / idea</a>
-                        </div>
-                        <div class="aboutLink">
-                           <a id="creditsButton" onclick="showCredits()">Credits</a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="aboutLink" id="backButton">
-                     <a onclick="showTwitter()">Go Back</a>
-                  </div>
-               </div>
-            </div>
-            <div id="BELLSCHEDULE SCREEN" class="hideDIV">
-               <div id="header">
-                  <h1 id="headerText">Bell Schedule</h1>
-               </div>
-               <div class="pageContent">
-                  <table class="tg" id="bellScheduleTable">
-                     <colgroup>
-                        <col style="width: 30%">
-                        <col style="width: 70%">
-                     </colgroup>
-                     <tr id="tableToNotDelete">
-                     </tr>
-                  </table>
-               </div>
-            </div>
+<head>
+  <title>HSE Schedule App</title>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" type="text/css" href="/public/styling/about.css">
+  <link rel="stylesheet" type="text/css" href="/public/styling/bellSchedule.css">
+  <link rel="stylesheet" type="text/css" href="/public/styling/home.css">
+  <link rel="stylesheet" type="text/css" href="/public/styling/calendar.css">
+  <link rel="stylesheet" type="text/css" href="/public/styling/settings.css">
+  <link rel="stylesheet" type="text/css" href="/public/styling/style.css">
+  <link rel="apple-touch-icon" href="/public/images/HSEScheduleAppLogo192.png">
+  <link rel="shortcut icon" href="/public/images/HSEScheduleAppLogo192.png">
+  <link rel="manifest" href="/public/manifest.json">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300&display=swap" rel="stylesheet">
+  <script src="/public/serviceworker.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/js/classes/moment.js"></script>
+  <script src="/public/js/classes/PopUp.js"></script>
+  <script src="/public/js/classes/Storage.js"></script>
+  <script src="/public/js/addons.js"></script>
+  <script src="/public/js/storageChecker.js"></script>
+  <script src="/public/js/pageSwitcher.js"></script>
+  <script src="/public/js/scheduleTable.js"></script>
+  <script src="/public/js/themeSwitcher.js"></script>
+  <script src="/public/js/completionCircle.js"></script>
+  <script src="/public/js/main.js"></script>
+  <script src="/public/js/animations.js"></script>
+  <script src="/public/js/swipe.js"></script>
+</head>
 
-            <div id="HOME SCREEN" class="hideDIV">
-               <div id="header">
-                  <h1 id="headerText">HSE Schedule</h1>
-               </div>
-               <div class="pageContent homeContent">
-                  <div class="mainElement">
-                     <div id="dateAndTime">
-                        <div id="currentDay">
-                           <h1 id="currentDayText"></h1>
-                        </div>
-                        <div id="currentWeek">
-                           <h1 id="currentWeekText"></h1>
-                        </div>
-                        <div id="currentTime">
-                           <h1 id="currentTimeText"></h1>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="mainElement timeMain">
-                     <canvas id="completionCircle"></canvas>
-                     <div id="timeElement">
-                        <div id="timeComponents">
-                           <div id="TimeContainer">
-                              <div id="timeRemaining">
-                                 <h3 id="timeHeader">Please Wait</h3>
-                                 <h3 id="timeSecondaryHeader"></h3>
-                              </div>
-                              <div id="time">
-                                 <h1 id="timeText">Connecting To Server</h1>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="mainElement">
-                     <h3 id="lunchText"></h3>
-                     <h1 id="lunchTime"></h1>
-                     <div id="lunch"></div>
-                  </div>
-               </div>
-            </div>
-            <div id="CALENDAR SCREEN" class="hideDIV">
-               <div id="header">
-                  <h1 id="headerText">Calendar</h1>
-               </div>
-               <div class="pageContent">
-                  <h2 style="text-align:center;margin-top:10px;">Click A Day To View Its Schedule</h2>
-                  <div id="cal-container">
-                     <table class="cal">
-                        <tr>
-                           <th class="cal-month" colspan="7" id="cal-month"><br></th>
-                        </tr>
-                        <tr>
-                           <td class="cal-header">Su</td>
-                           <td class="cal-header">Mo</td>
-                           <td class="cal-header">Tu</td>
-                           <td class="cal-header">We</td>
-                           <td class="cal-header">Th</td>
-                           <td class="cal-header">Fr</td>
-                           <td class="cal-header">Sa</td>
-                        </tr>
-                        <tr id="cal-week-1"></tr>
-                        <tr id="cal-week-2"></tr>
-                        <tr id="cal-week-3"></tr>
-                        <tr id="cal-week-4"></tr>
-                        <tr id="cal-week-5"></tr>
-                     </table>
-                     <table class="key">
-                        <td class="key-today"></td>
-                        <td class="key-row">Today</td>
-                        </tr>
-                        <tr>
-                           <td class="key-noSchool"></td>
-                           <td class="key-row">No School</td>
-                        </tr>
-                     </table>
-                  </div>
-               </div>
-            </div>
-            <div id="SETTINGS SCREEN" class="hideDIV">
-               <div id="header">
-                  <h1 id="headerText">Settings</h1>
-               </div>
-               <div class="pageContent">
-                  <div id="Version">
-                     <h2>Version 1.0.4</h2>
-                  </div>
-                  <div class="theme-switch-wrapper">
-                     <label class="theme-switch" for="themeSlider">
-                        <input type="checkbox" id="themeSlider" onchange="switchTheme()" />
-                        <div class="slider round"></div>
-                     </label>
-                     <h3 class="buttonLabel">Dark Theme</h3>
-                  </div>
-                  <div class="theme-switch-wrapper">
-                     <label class="theme-switch" for="animationSlider">
-                        <input type="checkbox" id="animationSlider" onchange="switchAnimations()" />
-                        <div class="slider round"></div>
-                     </label>
-                     <h3 class="buttonLabel">Animations</h3>
-                  </div>
-                  <div class="theme-switch-wrapper">
-                     <label class="theme-switch" for="circleSlider">
-                        <input type="checkbox" id="circleSlider" onchange="toggleCircle()" />
-                        <div class="slider round"></div>
-                     </label>
-                     <h3 class="buttonLabel">Completion Circle</h3>
-                  </div>
-                  <div class="lunchButtons">
-                     <div class="dropdown">
-                        <button class="dropbtn">Select Your Lunch</button>
-                        <div class="dropdown-content">
-                           <a id="aLunch" onclick="setLunch('A')">A</a>
-                           <a id="bLunch" onclick="setLunch('B')">B</a>
-                           <a id="cLunch" onclick="setLunch('C')">C</a>
-                           <a id="noLunch" onclick="setLunch('NONE')">None</a>
-                           <a id="allLunch" onclick="setLunch('ALL')">All</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <nav>
-            <div class="navbuttons">
-               <a onclick="showSection('about')" id="aboutButton">
-                  <div class="navbutton">
-                     <span class="centerHelper"></span>
-                     <img alt="About" class="center" src="/public/images/unselected/about.png" id="aboutIcon">
-                  </div>
-               </a>
-               <a onclick="showSection('bell')" id="bellButton">
-                  <div class="navbutton">
-                     <span class="centerHelper"></span>
-                     <img alt="Schedule" class="center" src="/public/images/unselected/schedule.png" id="bellIcon">
-                  </div>
-               </a>
-               <a onclick="showSection('home')" id="homeButton">
-                  <div class="navbutton">
-                     <span class="centerHelper"></span>
-                     <img alt="Home" class="center" src="/public/images/unselected/home.png" id="homeIcon">
-                  </div>
-               </a>
-               <a onclick="showSection('calendar')" id="calendarButton">
-                  <div class="navbutton">
-                     <span class="centerHelper"></span>
-                     <img alt="Calendar" class="center" src="/public/images/unselected/calendar.png" id="calendarIcon">
-                  </div>
-               </a>
-               <a onclick="showSection('settings')" id="settingsButton">
-                  <div class="navbutton">
-                     <span class="centerHelper"></span>
-                     <img alt="Settings" class="center" src="/public/images/unselected/settings.png" id="settingsIcon">
-                  </div>
-               </a>
-            </div>
-         </nav>
+<body class="disable-selection">
+  <div id="rotationContainer">
+    <h1 id="rotationText">Please Rotate Screen</h1>
+  </div>
+  <div id="contentHolder" class="content">
+    <div class="screenContent">
+      <div id="popup" class="hideDIV">
+        <h2 id="popup-header"></h2>
+        <br>
+        <p id="popup-message"></p>
+        <h4 id="popup-exit-message"><i><u>Click To Dismiss</u></i></h4>
       </div>
 
-   </body>
+      <div id="ABOUT SCREEN" class="hideDIV">
+        <div id="header">
+          <h1 id="headerText">Info Board</h1>
+        </div>
+        <div id="about" class="pageContent">
+          <div id="twitter" class="aboutElement">
+          </div>
+          <script src="/public/js/twitterFeed.js"></script>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <div class="info aboutElement">
+            <div id="credits" class="pageContent">
+              <div id="infoTitle">
+                <h2>Made by Ethan Donahue and Isaac Robbins</h2>
+              </div>
+              <div class="pfpImages">
+                <img alt="Ethan" class="pfp" src="/public/images/ethan.jpg"></img>
+                <img alt="Isaac" class="pfp" src="/public/images/isaac.jpg"></img>
+              </div>
+            </div>
+            <div id="links">
+              <a class="dropbtn" id="creditsButton" onclick="showCredits()">Credits</a>
+            </div>
+          </div>
+          <div id="backButton">
+            <a class="dropbtn" onclick="showTwitter()">Go Back</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="BELLSCHEDULE SCREEN" class="hideDIV">
+        <div id="header">
+          <h1 id="headerText">Bell Schedule</h1>
+        </div>
+        <div id="bellDay">
+          <h1 id="bellDayVal"></h1>
+        </div>
+        <div class="pageContent">
+          <table class="tg" id="bellScheduleTable">
+            <colgroup>
+              <col style="width: 30%">
+              <col style="width: 70%">
+            </colgroup>
+            <tr id="tableToNotDelete">
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div id="HOME SCREEN" class="showDIV">
+        <div id="header">
+          <h1 id="headerText">HSE Schedule</h1>
+        </div>
+        <div class="pageContent homeContent">
+          <div class="mainElement">
+            <div id="dateAndTime">
+              <div id="currentDay">
+                <h1 id="currentDayText"></h1>
+              </div>
+              <div id="currentWeek">
+                <h1 id="currentWeekText"></h1>
+              </div>
+              <div id="currentTime">
+                <h1 id="currentTimeText"></h1>
+              </div>
+            </div>
+          </div>
+          <div class="mainElement timeMain">
+            <canvas id="completionCircle"></canvas>
+            <div id="timeElement">
+              <div id="timeComponents">
+                <div id="TimeContainer">
+                  <div id="timeRemaining">
+                    <h3 id="timeHeader">Please Wait</h3>
+                    <h3 id="timeSecondaryHeader"></h3>
+                  </div>
+                  <div id="time">
+                    <h1 id="timeText">Connecting</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mainElement homeContent">
+            <div id="lunch">
+              <h3 id="lunchText"></h3>
+              <h1 id="lunchTime"></h1>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="CALENDAR SCREEN" class="hideDIV">
+        <div id="header">
+          <h1 id="headerText">Calendar</h1>
+        </div>
+
+        <div class="pageContent calContent">
+          <h2 class="calHeader calElement">Click A Day To View Its Schedule</h2>
+          <div id="calTables">
+            <table class="cal calElement">
+              <tr>
+                <th class="cal-month" colspan="7" id="cal-month"><br></th>
+              </tr>
+              <tr>
+                <td class="cal-header">Su</td>
+                <td class="cal-header">Mo</td>
+                <td class="cal-header">Tu</td>
+                <td class="cal-header">We</td>
+                <td class="cal-header">Th</td>
+                <td class="cal-header">Fr</td>
+                <td class="cal-header">Sa</td>
+              </tr>
+              <tr id="cal-week-1"></tr>
+              <tr id="cal-week-2"></tr>
+              <tr id="cal-week-3"></tr>
+              <tr id="cal-week-4"></tr>
+              <tr id="cal-week-5"></tr>
+              <tr id="cal-week-6"></tr>
+            </table>
+            <table class="key">
+              <td class="key-today"></td>
+              <td class="key-row">Today</td>
+              </tr>
+              <tr>
+                <td class="key-noSchool"></td>
+                <td class="key-row">No School</td>
+              </tr>
+            </table>
+          </div>
+          <div id="daysUntil" class="calElement">
+            <div id="daysUntiVal"></div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div id="SETTINGS SCREEN" class="hideDIV">
+        <div id="header">
+          <h1 id="headerText">Settings</h1>
+        </div>
+        <div class="pageContent">
+          <div id="Version">
+            <h2>Version 2.0.0</h2>
+          </div>
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="themeSlider">
+              <input type="checkbox" id="themeSlider" onchange="switchTheme()" />
+              <div class="slider round"></div>
+            </label>
+            <h3 class="buttonLabel">Dark Theme</h3>
+          </div>
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="animationSlider">
+              <input type="checkbox" id="animationSlider" onchange="switchAnimations()" />
+              <div class="slider round"></div>
+            </label>
+            <h3 class="buttonLabel">Animations</h3>
+          </div>
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="circleSlider">
+              <input type="checkbox" id="circleSlider" onchange="toggleCircle()" />
+              <div class="slider round"></div>
+            </label>
+            <h3 class="buttonLabel">Completion Circle (Currently Down)</h3>
+          </div>
+          <div class="lunchButtons">
+            <div class="dropdown">
+              <button class="dropbtn">Select Your Lunch</button>
+              <div class="dropdown-content">
+                <a id="aLunch" onclick="setLunch('A')">A</a>
+                <a id="bLunch" onclick="setLunch('B')">B</a>
+                <a id="cLunch" onclick="setLunch('C')">C</a>
+                <a id="noLunch" onclick="setLunch('NONE')">None</a>
+                <a id="allLunch" onclick="setLunch('ALL')">All</a>
+              </div>
+            </div>
+          </div>
+          <div class="aboutLink">
+            <a class="dropbtn" href="https://forms.gle/WdAiavnnCCVT7Eur9">Submit a problem / idea</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <nav>
+      <div class="navbuttons">
+        <a onclick="showSection('about')" id="aboutButton">
+          <div class="navbutton">
+            <span class="centerHelper"></span>
+            <img alt="About" class="center" src="/public/images/unselected/about.png" id="aboutIcon">
+          </div>
+        </a>
+        <a onclick="showSection('bell')" id="bellButton">
+          <div class="navbutton">
+            <span class="centerHelper"></span>
+            <img alt="Schedule" class="center" src="/public/images/unselected/schedule.png" id="bellIcon">
+          </div>
+        </a>
+        <a onclick="showSection('home')" id="homeButton">
+          <div class="navbutton">
+            <span class="centerHelper"></span>
+            <img alt="Home" class="center" src="/public/images/unselected/home.png" id="homeIcon">
+          </div>
+        </a>
+        <a onclick="showSection('calendar')" id="calendarButton">
+          <div class="navbutton">
+            <span class="centerHelper"></span>
+            <img alt="Calendar" class="center" src="/public/images/unselected/calendar.png" id="calendarIcon">
+          </div>
+        </a>
+        <a onclick="showSection('settings')" id="settingsButton">
+          <div class="navbutton">
+            <span class="centerHelper"></span>
+            <img alt="Settings" class="center" src="/public/images/unselected/settings.png" id="settingsIcon">
+          </div>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+</body>
+
 </html>
+<script src="/public/js/calendarScript.js"></script>
 <script src="/public/js/mobileBrowser.js"></script>
 <script src="/public/js/rotationDetect.js"></script>

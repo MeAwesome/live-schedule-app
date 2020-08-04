@@ -60,13 +60,3 @@ function hidePopup(){
     }
   }
 }
-
-window.ontouchstart = function(event){
-  hidePopup();
-}
-window.onclick = function(event){
-  hidePopup();
-}
-window.ontouch = function(event){
-  hidePopup();
-}

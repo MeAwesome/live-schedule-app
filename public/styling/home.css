@@ -1,100 +1,118 @@
-#currentDayText, #currentTimeText, #lunchText, #timeHeader, #timeSecondaryHeader{
-     color: var(--header-text-color);
+#currentDayText, #currentTimeText, #lunchText, #timeHeader, #timeSecondaryHeader {
+  color: var(--header-text-color);
 }
- #timeHeader{
-     display:block;
+
+#timeHeader {
+  display: block;
 }
- #time{
-     display:block;
+
+#time {
+  display: block;
 }
- @font-face {
-     font-family: "Rubik-Clock";
-     src: url("/public/fonts/Rubik-MonoClock.ttf") format("truetype");
+
+@font-face {
+  font-family: "Rubik-Clock";
+  src: url("/public/fonts/Rubik-MonoClock.ttf") format("truetype");
 }
- #timeText{
-     font-family: 'Rubik-Clock' !important;
-     font-kerning: none;
-     font-weight: lighter;
+
+#timeText {
+  font-family: 'Rubik-Clock' !important;
+  font-kerning: none;
+  font-weight: lighter;
 }
- /* #currentWeek{
-     padding: 10px;
-} */
- canvas{
-     position:absolute;
-     display:block;
+
+canvas {
+  position: absolute;
+  display: block;
 }
- #lunchTime{
-     font-family: 'Rubik-Clock' !important;
-     font-kerning: none;
-     font-weight: lighter;
+
+#lunchTime {
+  font-family: 'Rubik-Clock' !important;
+  font-kerning: none;
+  font-weight: lighter;
 }
- #rotationContainer {
-     display: none;
-     height: 100%;
-     margin: 0 auto;
+
+#rotationContainer {
+  display: none;
+  height: 100%;
+  margin: 0 auto;
 }
- #rotationText {
-     display: table-cell;
-     vertical-align: middle;
+
+#rotationText {
+  display: table-cell;
+  vertical-align: middle;
 }
- @media screen and (orientation:landscape) {
-     .homeContent{
-         display: flex;
-         flex-wrap: nowrap;
-         align-items: center;
-         /* height: 81vh; */
-         padding-left: 1vw;
-         padding-right: 1vw;
-    }
-     .homeContent > .mainElement{
-         width: 100%;
-         text-align: center;
-         vertical-align: middle;
-         font-size: 2.5vh;
-    }
-     #timeHeader{
-         font-size: 4vw;
-    }
-     #time{
-         font-size: 4vw;
-    }
-     #dateAndTime{
-         font-size:2vw;
-    }
-     #lunchText{
-         font-size: 3vw;
-    }
-     #lunchTime{
-         font-size:5vw;
-    }
+
+@media screen and (orientation:landscape) {
+  .homeContent {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+
+  .homeContent>.mainElement {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2.5vh;
+  }
+
+  #timeHeader {
+    font-size: 4vw;
+  }
+
+  #time {
+    font-size: 4vw;
+  }
+
+  #dateAndTime {
+    font-size: 2vw;
+  }
+
+  #lunchText {
+    font-size: 3vw;
+  }
+
+  #lunchTime {
+    font-size: 5vw;
+  }
 }
- @media screen and (orientation:portrait) {
-     .homeContent{
-         display: flex;
-         flex-wrap: nowrap;
-         flex-direction: column;
-         justify-content: space-between;
-         align-items: center;
-    }
-     .homeContent >.mainElement{
-         width: 100%;
-         text-align: center;
-         vertical-align: middle;
-         align-items: center;
-    }
-    #timeHeader{
-        font-size: 3vh;
-   }
-    #time{
-        font-size: 4vh;
-   }
-    #dateAndTime{
-        font-size:2vh;
-   }
-    #lunchText{
-        font-size: 3vh;
-   }
-    #lunchTime{
-        font-size:5vh;
-   }
+
+@media screen and (orientation:portrait) {
+  .homeContent {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .homeContent>.mainElement {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+  }
+
+  #timeHeader {
+    font-size: 3vh;
+  }
+
+  #time {
+    font-size: 4vh;
+  }
+
+  #dateAndTime {
+    font-size: 2vh;
+  }
+
+  #lunchText {
+    font-size: 3vh;
+  }
+
+  #lunchTime {
+    font-size: 5vh;
+  }
 }

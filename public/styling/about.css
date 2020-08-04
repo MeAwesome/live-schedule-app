@@ -1,63 +1,82 @@
-@media screen and (orientation:landscape){
-     .pfp{
-         padding-top:10px;
-         padding-right: 10px;
-         height: 30%;
-         width:40%;
-    }
-     .pfpImages{
-         display: inline-block;
-    }
-     .info {
-         padding-top: 10px;
-         padding-left: 20px;
-         position: absolute;
-         right: 0;
-         width: 50%;
-    }
-     #twitter{
-         padding-left: 20px;
-         padding-top: 20px;
-         width: 40%;
-    }
-     .aboutLink{
-         padding-top: 20px;
-    }
-     #about{
-         display: flex;
-    }
-     #creditsButton{
-         display: none;
-    }
+@media screen and (orientation:landscape) {
+  #about {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+
+  .pfp {
+    height: 30%;
+    width: 40%;
+  }
+
+  #twitter {
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 40%;
+  }
+
+  .info {
+    padding-top: 10px;
+    width: 50%;
+  }
+
+  #infoTitle {
+    text-align: center;
+  }
+
+  .pfpImages {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+  }
+
+  #creditsButton {
+    display: none;
+  }
 }
- @media screen and (orientation:portrait) {
-     .pfp{
-         margin-right: 20px;
-         margin-top: 20px;
-         height:30%;
-         width: 30%;
-    }
-     #twitter{
-         margin: 0 auto;
-         padding-top: 10px;
-         width: 90%;
-    }
-     #credits{
-         display: none;
-         width: 100%;
-    }
-     .aboutLink{
-         margin-left: 20px;
-         padding-top: 15px;
-    }
-     #credits{
-         padding-left: 20px;
-         padding-top: 10px;
-    }
+
+@media screen and (orientation:portrait) {
+  .pfpImages {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+  }
+
+  #about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .pfp {
+    height: 30%;
+    width: 30%;
+  }
+
+  #infoTitle {
+    text-align: center;
+  }
+
+  #twitter {
+    width: 90%;
+  }
+
+  #credits {
+    display: none;
+    width: 100%;
+  }
+
+  #links {
+    padding-bottom: 20px;
+  }
 }
- #backButton{
-     display: none;
+
+#backButton {
+  display: none;
 }
- .aboutLink a{
-     color: var(--font-color);
+
+.aboutLink a {
+  color: var(--font-color);
 }

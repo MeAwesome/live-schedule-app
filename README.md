@@ -1,7 +1,7 @@
 # HSE Schedule App
 ### Official Scheduling App For [Hamilton Southeastern High School](https://hhs.hseschools.org/)
 
-Developed By: [Ethan Donahue](https://github.com/donaheth000), [Isaac Robbins](https://github.com/MeAwesome), and [Carson Gamble](https://github.com/Carson-Gamble)
+Developed By: [Ethan Donahue](https://github.com/donaheth000) and [Isaac Robbins](https://github.com/MeAwesome)
 
 # Table Of Contents
 - [Installation](#installation)

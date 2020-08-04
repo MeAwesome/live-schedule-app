@@ -102,6 +102,11 @@
      background-color: var(--select-color);
 }
 
+.aboutLink {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
 #Version{
   display:block;
   text-align: center;
