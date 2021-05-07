@@ -7,7 +7,7 @@
     "moment-timezone": "^0.5.31",
     "nedb": "^1.8.0",
     "socket.io": "^2.3.0",
-    "underscore": "^1.10.2"
+    "underscore": "^1.12.1"
   },
   "engines": {
     "node": "13.10.x"
